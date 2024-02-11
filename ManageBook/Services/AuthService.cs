@@ -12,6 +12,11 @@ namespace ManageBook.Services
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _config;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="config"></param>
         public AuthService(UserManager<IdentityUser> userManager, IConfiguration config)
         {
             _userManager = userManager;

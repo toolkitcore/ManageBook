@@ -10,11 +10,22 @@ namespace ManageBook.Controllers
     public class AuthorsController : Controller
     {
         private readonly ManageBooksDbContext dbContext;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dbContext"></param>
         public AuthorsController(ManageBooksDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="BornYear"></param>
+        /// <param name="DiedYear"></param>
+        /// <returns></returns>
         private int CalculateAge(int BornYear, int? DiedYear)
         {
             if (DiedYear == null)
@@ -32,6 +43,10 @@ namespace ManageBook.Controllers
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllAuthors()
         {

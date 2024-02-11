@@ -10,11 +10,23 @@ namespace ManageBook.Controllers
     public class BooksController : Controller
     {
         private readonly ManageBooksDbContext dbContext;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dbContext"></param>
         public BooksController(ManageBooksDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value_a"></param>
+        /// <param name="value_b"></param>
+        /// <param name="value_c"></param>
+        /// <returns></returns>
         private int CheckSelection(int? value_a, int? value_b, int? value_c) {
             int select = 0;
 
@@ -46,6 +58,12 @@ namespace ManageBook.Controllers
             return select;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="BornYear"></param>
+        /// <param name="DiedYear"></param>
+        /// <returns></returns>
         private int CalculateAge(int BornYear, int? DiedYear)
         {
             if (DiedYear == null)
@@ -63,6 +81,13 @@ namespace ManageBook.Controllers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="authorId"></param>
+        /// <param name="rating"></param>
+        /// <param name="publishYear"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAllBooks([FromQuery] int? authorId, [FromQuery] int? rating, [FromQuery] int? publishYear)
         {
@@ -103,6 +128,11 @@ namespace ManageBook.Controllers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IActionResult> GetbookbyId([FromRoute] int id)
@@ -135,6 +165,11 @@ namespace ManageBook.Controllers
             return Ok(custombook);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="formatBookRequest"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddBooks(FormatBookRequest formatBookRequest)
         {
@@ -176,6 +211,12 @@ namespace ManageBook.Controllers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="formatBookRequest"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("{id:int}")]
         public async Task<IActionResult> UpdateContracts([FromRoute] int id, FormatBookRequest formatBookRequest)
@@ -227,6 +268,11 @@ namespace ManageBook.Controllers
             return Ok(custombook);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{id:int}")]
         public async Task<IActionResult> DeleteBooks([FromRoute] int id)

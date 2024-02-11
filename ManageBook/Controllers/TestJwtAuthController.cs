@@ -7,12 +7,21 @@ namespace ManageBook.Controllers
     [ApiController]
     public class TestJwtAuthController : ControllerBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("havejwt")]
         [Authorize]
         public async Task<IActionResult> TestJwt()
         {
                 return Ok("Successfull!");
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("nojwt")]
         public async Task<IActionResult> TestNoJwt()
         {

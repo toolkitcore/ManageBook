@@ -5,10 +5,21 @@ namespace ManageBook.Middlewares
     public class MiddlewareCheckTime
     {
         private readonly RequestDelegate _next;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="next"></param>
         public MiddlewareCheckTime(RequestDelegate next)
         {
             _next = next;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public async Task Invoke(HttpContext context) {
             var stopwatch = new Stopwatch();
             stopwatch.Start();

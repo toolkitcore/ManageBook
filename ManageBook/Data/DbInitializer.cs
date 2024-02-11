@@ -5,6 +5,11 @@ namespace ManageBook.Data
 {
     public static class DbInitializer
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns></returns>
         public static WebApplication Seed(this WebApplication app)
         {
             using (var scope = app.Services.CreateScope())

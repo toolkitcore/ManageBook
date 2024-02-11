@@ -9,11 +9,21 @@ namespace ManageBook.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="authService"></param>
         public AuthController(IAuthService authService)
         {
             _authService = authService;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="registerUser"></param>
+        /// <returns></returns>
         [HttpPost("Register")]
         public async Task<IActionResult> RegisterUser(RegisterUser registerUser)
         {
@@ -23,6 +33,11 @@ namespace ManageBook.Controllers
             return BadRequest("Something went wrong");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginUser user)
         {
